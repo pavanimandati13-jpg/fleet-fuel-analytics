@@ -13,7 +13,8 @@ FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder=FRONTEND_DIR, static_url_path='')
+
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
         'DATABASE_URL',
         'sqlite:///fleet.db'
@@ -29,12 +30,8 @@ def create_app():
         db.create_all()
 
     @app.route('/')
-    def frontend():
+    def index():
         return send_from_directory(FRONTEND_DIR, 'index.html')
-
-    @app.route('/<path:path>')
-    def frontend_files(path):
-        return send_from_directory(FRONTEND_DIR, path)
 
     return app
 
