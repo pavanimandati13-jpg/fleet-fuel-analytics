@@ -1,70 +1,32 @@
 # Cloud-Based Fleet Fuel Consumption Analytics
 
-A full-stack demo project for tracking a vehicle fleet's fuel consumption and
-viewing analytics (total fuel used, cost, monthly trends, per-vehicle
-average consumption).
+A web-based dashboard for monitoring fleet vehicles, fuel consumption, fuel costs, and monthly fuel usage.
 
-## Tech Stack
+## Live Demo
 
-- **Backend:** Python, Flask, Flask-SQLAlchemy, Flask-CORS
-- **Database:** SQLite by default (file-based, zero setup). `DATABASE_URL`
-  can be swapped for PostgreSQL/MySQL for a "cloud" deployment.
-- **Frontend:** Static HTML/CSS/JavaScript + Chart.js (no build step required)
-- **Containerization:** Docker + docker-compose (optional, for the backend)
+[Open Live Dashboard](https://fleet-fuel-analytics-3.onrender.com)
 
-## Project Structure
+## Backend API
 
-```
-fleet-fuel-analytics/
-├── backend/
-│   ├── app.py            # Flask app factory / entry point
-│   ├── database.py       # SQLAlchemy db instance
-│   ├── models.py         # Vehicle, FuelLog models
-│   ├── routes.py         # REST API endpoints (/api/...)
-│   ├── seed_data.py      # Populates sample vehicles + fuel logs
-│   ├── requirements.txt  # Python dependencies
-│   ├── .env.example      # Example environment variables
-│   └── Dockerfile
-├── frontend/
-│   ├── index.html
-│   ├── css/style.css
-│   └── js/app.js
-├── docker-compose.yml
-└── README.md
-```
+[View Analytics Summary API](https://fleet-fuel-analytics-2.onrender.com/api/analytics/summary)
 
-## API Endpoints
+## Features
 
-| Method | Endpoint                        | Description                        |
-|--------|----------------------------------|-------------------------------------|
-| GET    | `/api/vehicles`                 | List all vehicles                   |
-| POST   | `/api/vehicles`                 | Add a vehicle                       |
-| GET    | `/api/fuel-logs`                | List fuel logs (optional `?vehicle_id=`) |
-| POST   | `/api/fuel-logs`                | Add a fuel log entry                |
-| GET    | `/api/analytics/summary`        | Fleet-wide totals                   |
-| GET    | `/api/analytics/monthly`        | Monthly fuel/cost trend             |
-| GET    | `/api/analytics/vehicle/<id>`   | Per-vehicle average consumption     |
+- Monitor total fuel consumption.
+- Track total fuel costs.
+- View fleet vehicles and their details.
+- Analyze individual vehicle fuel consumption.
+- Visualize monthly fuel consumption.
+- Retrieve analytics through REST API endpoints.
 
-## Quick Start (local, no Docker)
+## Technologies Used
 
-```bash
-cd backend
-python -m venv venv
-venv\Scripts\activate          # Windows
-pip install -r requirements.txt
-copy .env.example .env
-python seed_data.py
-python app.py
-```
+- Frontend: HTML, CSS, JavaScript, Chart.js
+- Backend: Python, Flask
+- Database: SQLAlchemy
+- Deployment: Render
+- Version Control: Git and GitHub
 
-Then open `frontend/index.html` in your browser (or serve it with
-`npx serve frontend`), with the backend running at `http://localhost:5000`.
+## Source Code
 
-## Quick Start (Docker, backend only)
-
-```bash
-docker-compose up --build
-```
-
-Frontend is still opened as a static file / served separately — see the
-setup guide for full details.
+[View GitHub Repository](https://github.com/pavanimandati13-jpg/fleet-fuel-analytics)
