@@ -27,7 +27,10 @@ def create_app():
     app.register_blueprint(api_bp, url_prefix='/api')
 
     with app.app_context():
-        db.create_all()
+    db.create_all()
+
+    from seed_data import populate_if_empty
+    populate_if_empty()
 
     @app.route('/')
     def index():
