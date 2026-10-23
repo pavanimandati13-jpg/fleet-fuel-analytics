@@ -1,5 +1,4 @@
-const API_BASE = '/api';
-
+const API_BASE = 'http://localhost:5000/api';
 
 async function loadSummary() {
   const res = await fetch(`${API_BASE}/analytics/summary`);

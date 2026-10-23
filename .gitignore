@@ -1,7 +1,11 @@
-venv/
+
 __pycache__/
-*.pyc
+*.py[cod]
 .env
+.env.*
+!.env.example
 *.db
+venv/
+.venv/
 node_modules/
 .DS_Store
