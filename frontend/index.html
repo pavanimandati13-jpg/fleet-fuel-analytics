@@ -1,44 +1,67 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Fleet Fuel Consumption Analytics</title>
-<link rel="stylesheet" href="css/style.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.3/chart.umd.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cloud-Based Fleet Fuel Consumption Analytics</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Load Chart.js before the dashboard JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <!-- Load the dashboard after the HTML is parsed -->
+  <script defer src="js/app.js"></script>
 </head>
+
 <body>
   <header>
     <h1>🚛 Cloud-Based Fleet Fuel Consumption Analytics</h1>
   </header>
 
   <main>
+    <!-- Dashboard Summary Cards -->
     <section class="cards">
       <div class="card">
-        <h3 id="total-fuel">--</h3>
+        <h3 id="total-fuel">Loading...</h3>
         <p>Total Fuel Used</p>
       </div>
+
       <div class="card">
-        <h3 id="total-cost">--</h3>
+        <h3 id="total-cost">Loading...</h3>
         <p>Total Fuel Cost</p>
       </div>
+
       <div class="card">
-        <h3 id="total-vehicles">--</h3>
+        <h3 id="total-vehicles">Loading...</h3>
         <p>Vehicles Tracked</p>
       </div>
+
       <div class="card">
-        <h3 id="total-logs">--</h3>
+        <h3 id="total-logs">Loading...</h3>
         <p>Fuel Log Entries</p>
       </div>
     </section>
 
+    <!-- Monthly Fuel Consumption Chart -->
     <section class="chart-section">
       <h2>Monthly Fuel Consumption</h2>
-      <canvas id="monthlyChart" height="90"></canvas>
+
+      <div style="position: relative; width: 100%; height: 350px;">
+        <canvas
+          id="monthlyChart"
+          role="img"
+          aria-label="Monthly fuel consumption line chart"
+        ></canvas>
+      </div>
     </section>
 
+    <!-- Fleet Vehicles Table -->
     <section class="table-section">
       <h2>Fleet Vehicles</h2>
+
       <table id="vehicles-table">
         <thead>
           <tr>
@@ -49,13 +72,21 @@
             <th>Analytics</th>
           </tr>
         </thead>
-        <tbody></tbody>
+
+        <tbody>
+          <tr>
+            <td colspan="5">Loading vehicles...</td>
+          </tr>
+        </tbody>
       </table>
     </section>
 
-    <section id="vehicle-detail" class="detail-section"></section>
+    <!-- Selected Vehicle Analytics -->
+    <section
+      id="vehicle-detail"
+      class="detail-section"
+      aria-live="polite"
+    ></section>
   </main>
-
-  <script src="js/app.js"></script>
 </body>
 </html>
