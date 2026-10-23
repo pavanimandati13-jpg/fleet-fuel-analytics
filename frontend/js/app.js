@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000/api';
+  const API_BASE = 'https://fleet-fuel-analytics-2.onrender.com/api';
 
 async function loadSummary() {
   const res = await fetch(`${API_BASE}/analytics/summary`);
